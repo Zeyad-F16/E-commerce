@@ -26,10 +26,12 @@ res.status(201).json({data : user , token});
 });
 
 
+// @desc    login
+// @route   POST /api/v1/auth/login
+// @access  Public
 exports.login =asyncHandler(async(req, res, next)=>{
 
 const user = await userModel.findOne({email: req.body.email});
-
 if(!user || !(await bcrypt.compare(req.body.password , user.password))){
     return next(new ApiError('Incorrect Email or Password',401));
 }

@@ -1,6 +1,3 @@
-const ApiError = require('../utils/apiError');
-
-
 const sendErrorForDev = (err,res)=>
  res.status(err.statusCode).json({
     status : err.status,
@@ -15,8 +12,6 @@ res.status(err.statusCode).json({
     message:err.message,
 });
 
-const handleJwtInvalidSignature = ()=> new ApiError('Invalid token , please login again..',401);
-const handleTokenExpiredError = ()=> new ApiError(' Expired token , please login again..',401);
 
 const globalError=(err,req,res,next)=>{
     err.status = err.status || 'error';
@@ -25,8 +20,6 @@ const globalError=(err,req,res,next)=>{
     sendErrorForDev(err,res);
     }
     else{
-        if(err.name === 'JsonWebTokenError') err = handleJwtInvalidSignature();
-        if(err.name === 'TokenExpiredError') err = handleTokenExpiredError();
         sendErrorForProd(err,res);
     }};
 
