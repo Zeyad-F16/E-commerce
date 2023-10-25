@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema({
     trim : true,
     required: [true , 'name is required'],
 },
-sluq:{
+slug:{
     type : String,
     lowercase : true,
 },
@@ -21,10 +21,6 @@ password:{
     type: String,
     required: [true , 'password is required'],
     minlength : [6,'Too short password'],
-},
-phone:{
-    type: String,
-    required: [true , 'phone number is required'],
 },
 role:{
     type:String ,

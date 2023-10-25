@@ -25,11 +25,6 @@ exports.registerValidator = [
       }
     })
     ),
-    check('phone')
-    .notEmpty()
-    .withMessage('phone number is required')
-    .isMobilePhone('ar-EG')
-    .withMessage('Your phone number in not allowed in egypt'),
     check('password')
     .notEmpty()
     .withMessage('Password required')
