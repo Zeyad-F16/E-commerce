@@ -27,7 +27,6 @@ if(process.env.NODE_ENV === 'development'){
 }
 
 //Routes
-app.use('/',(req, res ,next)=>  res.json({message : 'welcome to render' }));
 app.use('/api/v1/auth',authRoute);
 
 //  error handling middleware for routes
