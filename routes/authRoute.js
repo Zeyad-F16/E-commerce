@@ -3,8 +3,8 @@ const express = require('express');
 const router = express.Router();
 
 const {register , login} = require('../services/authService');
-const {registerValidator , loginValidator } = require('../utils/validators/authValidator');
 
+const {registerValidator , loginValidator } = require('../utils/validators/authValidator');
 
 router.post('/register', registerValidator , register);
 
